@@ -1,0 +1,58 @@
+html, body {
+    height: 100%;
+}
+.navbar {
+    border-radius: 0;
+}
+.page-header {
+    padding-bottom: 0 !important;
+    margin: 0 !important;
+    border-bottom: 0 !important;
+}
+.page-header .navbar-nav {
+    float: right;
+}
+.page-header>div>div, .page-header>div>ul {
+    display:inline-block;
+}
+.text-edit {
+    padding: 13px 0 0 0;
+}
+.account {
+    text-align:right;
+}
+.account>div, .account>ul {
+    text-align:left;
+}
+.navbar .nav>li>a.brand {
+    padding-left:20px;
+    margin-left:0
+}
+.content {
+    margin-top:70px;
+    width:100%
+}
+body .wrapper {
+    height: auto;
+    min-height: 100%;
+}
+
+@footer-height: 80px;
+.main-container {
+    padding-bottom: @footer-height;
+}
+@theme-color: #2d313d;
+footer {
+    position: relative;
+    margin-top: -@footer-height;
+    height: @footer-height;
+    clear: both;
+    color: white;
+    background-color: @theme-color;
+}
+footer .container {
+    padding: 5px 0;    
+}
+footer p {
+    margin-top: 10px;
+}
