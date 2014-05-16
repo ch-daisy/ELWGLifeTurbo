@@ -3,7 +3,8 @@
 var paths = {
     js: ['*.js', 'server/**/*.js', 'public/**/*.js', 'test/**/*.js', '!test/coverage/**', '!public/system/lib/**', 'packages/**/*.js'],
     html: ['public/**/views/**', 'server/views/**', 'packages/**/public/**/views/**', 'packages/**/server/views/**'],
-    css: ['public/**/css/*.css', '!public/system/lib/**', 'packages/**/public/**/css/*.css']
+    css: ['public/**/css/*.css', '!public/system/lib/**', 'packages/**/public/**/css/*.css'],
+    less: ['public/**/less/*.less', '!public/system/lib/**', 'packages/**/public/**/less/*.less']
 };
 
 module.exports = function(grunt) {
@@ -37,6 +38,13 @@ module.exports = function(grunt) {
                 options: {
                     livereload: true
                 }
+            },
+            less: {
+                files: paths.less,
+                tasks: ['less'],
+                options: {
+                    livereload: true
+                }
             }
         },
         jshint: {
@@ -60,6 +68,16 @@ module.exports = function(grunt) {
                 csslintrc: '.csslintrc'
             },
             src: paths.css
+        },
+        less: {
+            development: {
+                options: {
+                    paths: ['public/system/assets/less']
+                },
+                files: {
+                    'public/system/assets/css/common.css': 'public/system/assets/less/common.less'
+                }
+            }
         },
         cssmin: {
             combine: {

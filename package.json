@@ -5,11 +5,26 @@
   "private": false,
   "author": "Linnovate <mean@linnovate.net>",
   "contributors": [
-    { "name": "Lior Kesos", "mail": "lior@linnovate.net" },
-    { "name": "Yonatan Ellman", "mail": "yonatan@linnovate.net" },
-    { "name": "Ehud Shahak", "mail": "ehud@linnovate.net" },
-    { "name": "Amos Haviv", "mail": "mail@amoshaviv" },
-    { "name": "Drew Fyock", "mail": "drew@steelbisondev.com" }
+    {
+      "name": "Lior Kesos",
+      "mail": "lior@linnovate.net"
+    },
+    {
+      "name": "Yonatan Ellman",
+      "mail": "yonatan@linnovate.net"
+    },
+    {
+      "name": "Ehud Shahak",
+      "mail": "ehud@linnovate.net"
+    },
+    {
+      "name": "Amos Haviv",
+      "mail": "mail@amoshaviv"
+    },
+    {
+      "name": "Drew Fyock",
+      "mail": "drew@steelbisondev.com"
+    }
   ],
   "repository": {
     "type": "git",
@@ -87,6 +102,7 @@
     "karma-script-launcher": "~0.1.0",
     "requirejs": "~2.1.11",
     "should": "3.3.1",
-    "supertest": "0.11.0"
+    "supertest": "0.11.0",
+    "grunt-contrib-less": "~0.11.0"
   }
 }
