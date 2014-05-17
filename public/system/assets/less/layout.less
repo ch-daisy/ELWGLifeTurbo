@@ -1,0 +1,32 @@
+/**
+ * layout.less
+ * 实现了经典的上中下布局
+ * 实现了Sticky footer（参照：http://www.cssstickyfooter.com/cn/）
+ */
+
+@import "constants";
+
+html, body {
+    height: 100%;
+}
+body .wrapper {
+    height: auto;
+    min-height: 100%;
+}
+.main-container {
+    padding-bottom: @footer-height;
+}
+footer {
+    position: relative;
+    margin-top: -@footer-height;
+    height: @footer-height;
+    clear: both;
+    color: white;
+    background-color: @header-footer-color;
+}
+footer .container {
+    padding: 5px 0;
+}
+footer p {
+    margin-top: 10px;
+}
