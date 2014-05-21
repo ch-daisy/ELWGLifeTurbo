@@ -5,7 +5,7 @@ angular.element(document).ready(function() {
     if (window.location.hash === '#_=_') window.location.hash = '#!';
 
     //Then init the app
-    angular.bootstrap(document, ['mean']);
+    angular.bootstrap(document, ['elwglife']);
 
 });
 
@@ -21,4 +21,4 @@ var modules = ['ngCookies', 'ngResource', 'ui.bootstrap', 'ui.router', 'mean.sys
 modules = modules.concat(packageModules);
 
 // Combined modules
-angular.module('mean', modules);
+angular.module('elwglife', modules);
