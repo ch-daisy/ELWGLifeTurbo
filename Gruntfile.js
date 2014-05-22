@@ -21,10 +21,14 @@ module.exports = function(grunt) {
         watch: {
             js: {
                 files: paths.js,
-                tasks: ['jshint'],
+                // tasks: ['jshint'],
                 options: {
                     livereload: true
                 }
+            },
+            js_test: {
+                files: paths.js,
+                tasks: ['karma:unit']
             },
             html: {
                 files: paths.html,
@@ -34,7 +38,7 @@ module.exports = function(grunt) {
             },
             css: {
                 files: paths.css,
-                tasks: ['csslint'],
+                // tasks: ['csslint'],
                 options: {
                     livereload: true
                 }
@@ -101,17 +105,18 @@ module.exports = function(grunt) {
             }
         },
         concurrent: {
-            tasks: ['nodemon', 'watch'],
-            options: {
-                logConcurrentOutput: true
-            }
-        },
-        mochaTest: {
-            options: {
-                reporter: 'spec',
-                require: 'server.js'
+            run: {
+                tasks: ['nodemon', 'watch'],
+                options: {
+                    logConcurrentOutput: true
+                }
             },
-            src: ['test/mocha/**/*.js', 'packages/**/test/mocha/**/*.js']
+            test: {
+                tasks: ['nodemon', 'watch:js_test'],
+                options: {
+                    logConcurrentOutput: true
+                }
+            }
         },
         env: {
             test: {
@@ -120,7 +125,7 @@ module.exports = function(grunt) {
         },
         karma: {
             unit: {
-                configFile: 'test/karma/karma.conf.js'
+                configFile: 'test/karma.conf.js'
             }
         }
     });
@@ -130,15 +135,11 @@ module.exports = function(grunt) {
 
     //Default task(s).
     if (process.env.NODE_ENV === 'production') {
-        grunt.registerTask('default', ['clean','cssmin', 'uglify', 'concurrent']);
+        grunt.registerTask('default', ['clean','cssmin', 'uglify', 'concurrent:run']);
     } else {
-        grunt.registerTask('default', ['clean','jshint', 'csslint', 'concurrent']);
+        grunt.registerTask('default', ['clean','jshint', 'csslint', 'concurrent:run']);
     }
 
     //Test task.
-    grunt.registerTask('test', ['env:test', 'mochaTest', 'karma:unit']);
-
-    // For Heroku users only.
-    // Docs: https://github.com/linnovate/mean/wiki/Deploying-on-Heroku
-    grunt.registerTask('heroku:production', ['cssmin', 'uglify']);
+    grunt.registerTask('test', ['env:test', 'concurrent:test']);
 };
