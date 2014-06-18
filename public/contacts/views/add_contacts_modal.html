@@ -1,0 +1,71 @@
+<script type="text/ng-template" id="addContactsModal.html">
+  <div class="modal-header">
+    <h4>添加/修改通讯录</h4>
+  </div>
+
+  <div class="modal-body">
+    <form class="form-horizontal" role="form">
+      <div class="form-group">
+        <label for="inputName" class="col-sm-2 control-label">姓名</label>
+        <div class="col-sm-10">
+          <input type="input" class="form-control" id="inputName" placeholder="如果有同名则更新">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="radioSex" class="col-sm-2 control-label">性别</label>
+        <div class="col-sm-10">
+          <label class="radio-inline">
+            <input type="radio" name="radioSex" checked="true" id="radioMale" value="male">男
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="radioSex" id="radioFemale" value="female">女
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="inputGrade" class="col-sm-2 control-label">年级</label>
+        <div class="col-sm-10">
+          <select class="form-control">
+            <option>14级</option>
+            <option>13级</option>
+            <option>12级</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="inputMobile" class="col-sm-2 control-label">电话</label>
+        <div class="col-sm-10">
+          <input type="input" class="form-control" id="inputMobile">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="inputQQ" class="col-sm-2 control-label">QQ</label>
+        <div class="col-sm-10">
+          <input type="input" class="form-control" id="inputQQ">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="inputTeacher" class="col-sm-2 control-label">导师</label>
+        <div class="col-sm-10">
+          <select class="form-control">
+            <option>许炜</option>
+            <option>程文青</option>
+            <option>夏天</option>
+            <option>黑晓军</option>
+          </select>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+  <div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok()">提交</button>
+    <button class="btn btn-warning" ng-click="cancel()">取消</button>
+  </div>
+</script>

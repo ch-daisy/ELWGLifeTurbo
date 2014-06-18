@@ -26,11 +26,11 @@ angular.module('mean.system')
     .config(['$locationProvider',
         function($locationProvider) {
             // 若浏览器支持HTML5的history API，则删除URL的#
-            if(window.history && window.history.pushState){
-                $locationProvider.html5Mode(true);
-            } else {
-                // 否则只能强制浏览器使用带#的URL
-                $locationProvider.hashPrefix('!');                
-            }
+            // if(window.history && window.history.pushState){
+            //     $locationProvider.html5Mode(true);
+            // } else {
+            //     // 否则只能强制浏览器使用带#的URL
+            //     $locationProvider.hashPrefix('!');                
+            // }
         }
     ]);

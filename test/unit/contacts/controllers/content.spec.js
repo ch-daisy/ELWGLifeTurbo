@@ -5,7 +5,7 @@
         beforeEach(module('elwglife.contacts'));
 
         describe('Unit: Test ContentController', function() {
-            var $scope, mockBackend, ctrl, createController;
+            var $scope, mockBackend, ctrl;
             beforeEach(inject(function($controller, $rootScope, _$httpBackend_) {
                 $scope = $rootScope.$new();
                 mockBackend = _$httpBackend_;

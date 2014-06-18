@@ -26,10 +26,10 @@ module.exports = function(grunt) {
                     livereload: true
                 }
             },
-            js_test: {
-                files: paths.js,
-                tasks: ['karma:unit']
-            },
+            // js_test: {
+            //     files: paths.js,
+            //     tasks: ['karma:unit']
+            // },
             html: {
                 files: paths.html,
                 options: {
@@ -76,10 +76,14 @@ module.exports = function(grunt) {
         less: {
             development: {
                 options: {
-                    paths: ['public/system/assets/less']
+                    paths: [
+                        'public/system/assets/less',
+                        'public/contacts/assets/less'
+                    ]
                 },
                 files: {
-                    'public/system/assets/css/common.css': 'public/system/assets/less/common.less'
+                    'public/system/assets/css/common.css': 'public/system/assets/less/common.less',
+                    'public/contacts/assets/css/contacts.css': 'public/contacts/assets/less/contacts.less'
                 }
             }
         },

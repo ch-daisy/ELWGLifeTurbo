@@ -1,55 +1,197 @@
-html, body {
-    height: 100%;
+/* constants/color.less */
+/**
+ * constants/size.less
+ * 定义了各种关于尺寸的常量
+ */
+html,
+body {
+  height: 100%;
+}
+body,
+table,
+input,
+textarea,
+select,
+button {
+  font-family: "Helvetica Neue", Helvetica, '微软雅黑', Arial, sans-serif;
 }
 .navbar {
-    border-radius: 0;
+  border-radius: 0;
+}
+.navbar-inverse {
+  background-color: #2d313d;
 }
 .page-header {
-    padding-bottom: 0 !important;
-    margin: 0 !important;
-    border-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  margin: 0 !important;
+  border-bottom: 0 !important;
 }
 .page-header .navbar-nav {
-    float: right;
-}
-.page-header>div>div, .page-header>div>ul {
-    display:inline-block;
-}
-.text-edit {
-    padding: 13px 0 0 0;
-}
-.account {
-    text-align:right;
-}
-.account>div, .account>ul {
-    text-align:left;
-}
-.navbar .nav>li>a.brand {
-    padding-left:20px;
-    margin-left:0
+  float: right;
 }
 .content {
-    margin-top:70px;
-    width:100%
+  margin-top: 70px;
+  width: 100%;
+}
+/**
+ * layout.less
+ * 实现了经典的上中下布局
+ * 实现了Sticky footer（参照：http://www.cssstickyfooter.com/cn/）
+ */
+html,
+body {
+  height: 100%;
 }
 body .wrapper {
-    height: auto;
-    min-height: 100%;
+  height: auto;
+  min-height: 100%;
 }
 .main-container {
-    padding-bottom: 80px;
+  padding-bottom: 80px;
 }
 footer {
-    position: relative;
-    margin-top: -80px;
-    height: 80px;
-    clear: both;
-    color: white;
-    background-color: #2d313d;
+  position: relative;
+  margin-top: -80px;
+  height: 80px;
+  clear: both;
+  color: white;
+  background-color: #2d313d;
 }
 footer .container {
-    padding: 5px 0;    
+  padding: 5px 0;
 }
 footer p {
-    margin-top: 10px;
+  margin-top: 10px;
+}
+/**
+ * util.less
+ * 定义一些常用的工具类
+ */
+/**
+ * utils/whitespace.less
+ * 定义了常用的内外边距的工具方法
+ * 
+ * p,m = padding,margin
+ * a,t,r,b,l = all,top,right,bottom,left
+ * s,m,l,n = small(@small-size), medium(@medium-size), large(@large-size), zero or none(@none-size)
+ */
+.man {
+  margin: 0;
+}
+.pan {
+  padding: 0;
+}
+.mas {
+  margin: 1em;
+}
+.mam {
+  margin: 2em;
+}
+.mal {
+  margin: 4em;
+}
+.pas {
+  padding: 1em;
+}
+.pam {
+  padding: 2em;
+}
+.pal {
+  padding: 4em;
+}
+.mtn {
+  margin-top: 0;
+}
+.mts {
+  margin-top: 1em;
+}
+.mtm {
+  margin-top: 2em;
+}
+.mtl {
+  margin-top: 4em;
+}
+.mrn {
+  margin-right: 0;
+}
+.mrs {
+  margin-right: 1em;
+}
+.mrm {
+  margin-right: 2em;
+}
+.mrl {
+  margin-right: 4em;
+}
+.mbn {
+  margin-bottom: 0;
+}
+.mbs {
+  margin-bottom: 1em;
+}
+.mbm {
+  margin-bottom: 2em;
+}
+.mbl {
+  margin-bottom: 4em;
+}
+.mln {
+  margin-left: 0;
+}
+.mls {
+  margin-left: 1em;
+}
+.mlm {
+  margin-left: 2em;
+}
+.mll {
+  margin-left: 4em;
+}
+.ptn {
+  padding-top: 0;
+}
+.pts {
+  padding-top: 1em;
+}
+.ptm {
+  padding-top: 2em;
+}
+.ptl {
+  padding-top: 4em;
+}
+.prn {
+  padding-right: 0;
+}
+.prs {
+  padding-right: 1em;
+}
+.prm {
+  padding-right: 2em;
+}
+.prl {
+  padding-right: 4em;
+}
+.pbn {
+  padding-bottom: 0;
+}
+.pbs {
+  padding-bottom: 1em;
+}
+.pbm {
+  padding-bottom: 2em;
+}
+.pbl {
+  padding-bottom: 4em;
+}
+.pln {
+  padding-left: 0;
+}
+.pls {
+  padding-left: 1em;
+}
+.plm {
+  padding-left: 2em;
+}
+.pll {
+  padding-left: 4em;
 }
