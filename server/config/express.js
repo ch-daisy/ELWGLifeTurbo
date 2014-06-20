@@ -64,17 +64,21 @@ module.exports = function(app, db) {
     app.use(cookieParser());
 
     // 导入静态文件
-    var assets = require('./assets.json');
-    assetmanager.init({
-        js: assets.js,
-        css: assets.css,
+    var assets = assetmanager.process({
+        assets: require('./assets.json'),
         debug: (process.env.NODE_ENV !== 'production'),
-        webroot: 'public/public'
+        webroot: '/public'
     });
+    // assetmanager.init({
+    //     js: assets.js,
+    //     css: assets.css,
+    //     debug: (process.env.NODE_ENV !== 'production'),
+    //     webroot: 'public/public'
+    // });
 
     // Add assets to local variables
     app.use(function(req, res, next) {
-        res.locals.assets = assetmanager.assets;
+        res.locals.assets = assets;
         next();
     });
 
