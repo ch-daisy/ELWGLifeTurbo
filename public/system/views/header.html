@@ -1,13 +1,13 @@
 <div class="container">
-  <div class="page-header" data-ng-controller="HeaderController">
+  <div class="page-header" data-ng-controller="HeaderCtrl">
     <div class="logo pull-left">
-      <a class="navbar-brand" href="/" mean-token="'site-title'">ELWG Life Turbo</a>
+      <a class="navbar-brand" href="/">ELWG Life Turbo</a>
     </div>
 
     <div class="left pull-left">
       <ul class="navbar-nav nav">
         <li data-ng-repeat="item in menus" ui-route="/{{item.link}}" ng-class="{active: $uiRoute}">
-          <a mean-token="item.link" ui-sref='{{item.link}}'>{{item.title}}</a>
+          <a ui-sref='{{item.link}}'>{{item.title}}</a>
         </li>
       </ul>
     </div>
