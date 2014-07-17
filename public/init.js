@@ -23,7 +23,7 @@ var modules = [
     'ui.bootstrap', 
     'ui.router', 
 
-    'mean.system', 
+    'elwglife.system', 
     'elwglife.contacts'
 ];
 modules = modules.concat(packageModules);

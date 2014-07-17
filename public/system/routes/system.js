@@ -1,7 +1,7 @@
 'use strict';
 
 //Setting up route
-angular.module('mean.system')
+angular.module('elwglife.system')
     .config(['$stateProvider', '$urlRouterProvider',
         function($stateProvider, $urlRouterProvider) {
             // For unmatched routes:
