@@ -4,6 +4,9 @@
     // TODO: 在此处引入Model层的东西，例如
     // User = mongoose.model('User');
 
+/**
+ * 查询所有通讯录
+ */
 exports.getContacts = function(req, res) {
     // TODO: 查询数据库
     
@@ -21,7 +24,23 @@ exports.getContacts = function(req, res) {
     res.json(result);
 };
 
+/**
+ * 创建或更新通讯录记录
+ */
+exports.updateContacts = function(req, res) {
+    var state = 'create';
 
+    // 提交的内容存放在req.body中
+    console.log(req.body);
+
+    // TODO: 如果不存在同名则创建一条新记录
+    // TODO: 若存在同名则更新数据库的记录（同时state = 'update'）
+
+    res.json({
+        msg: state,
+        body: req.body
+    });
+};
 
 /**
  * Create user
