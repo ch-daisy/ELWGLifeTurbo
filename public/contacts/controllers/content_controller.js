@@ -2,8 +2,12 @@
 
 var contactsModule = angular.module('elwglife.contacts');
 
-contactsModule.controller('ContentController',
-    function($scope, Contacts) {
-        $scope.contactsList = Contacts.query();
+contactsModule.controller('ContentCtrl',
+    function($scope, ContactsLoader) {
+        $scope.contactsList = new ContactsLoader();
+
+        $scope.$on('addContacts', function(e) {
+            $scope.contactsList = new ContactsLoader();
+        });
     }
 );

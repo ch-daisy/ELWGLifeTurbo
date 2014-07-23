@@ -7,3 +7,9 @@ contactsModule.factory('Contacts', function($resource) {
         id: '@id'
     });
 });
+
+contactsModule.factory('ContactsLoader', function(Contacts) {
+    return function() {
+        return Contacts.query(); 
+    };
+});
