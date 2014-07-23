@@ -6,6 +6,17 @@
     <th>电话</th>
     <th>QQ</th>
     <th>邮箱</th>
+    <th>导师</th>
   </thead>
-  <tbody></tbody>
+  <tbody>
+    <tr ng-repeat="contacts in contactsList">
+      <td>{{contacts.name}}</td>
+      <td>{{contacts.sex ? '男': '女'}}</td>
+      <td>{{contacts.grade}}</td>
+      <td>{{contacts.mobile}}</td>
+      <td>{{contacts.qq}}</td>
+      <td>{{contacts.email}}</td>
+      <td>{{contacts.teacher}}</td>
+    </tr>
+  </tbody>
 </table>

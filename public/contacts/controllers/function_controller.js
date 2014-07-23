@@ -7,7 +7,7 @@ contactsModule.controller('FunctionController',
         $scope.openAddContactsModal = function(size) {
             $modal.open({
                 templateUrl: 'addContactsModal.html',
-                controller: 'AddContactsModalController',
+                controller: 'AddContactsModalCtrl',
                 size: size,
                 resolve: {
                     items: function() {
