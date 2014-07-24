@@ -14,7 +14,7 @@ contactsModule.controller('ContentCtrl',
 
         // 搜索关键词事件
         $scope.$on('searchKeyword', function(e, keyword) {
-            console.log($scope.contactsList);
+            $scope.keyword = keyword;
         });
     }
 );

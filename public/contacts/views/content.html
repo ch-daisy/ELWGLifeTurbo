@@ -9,9 +9,9 @@
     <th>导师</th>
   </thead>
   <tbody>
-    <tr ng-repeat="contacts in contactsList">
+    <tr ng-repeat="contacts in contactsList | filter:keyword">
       <td>{{contacts.name}}</td>
-      <td>{{contacts.sex ? '男': '女'}}</td>
+      <td>{{contacts.sex}}</td>
       <td>{{contacts.grade}}</td>
       <td>{{contacts.mobile}}</td>
       <td>{{contacts.qq}}</td>
