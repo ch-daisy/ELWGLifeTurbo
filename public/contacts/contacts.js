@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('elwglife.contacts', []);
+angular.module('elwglife.contacts', ['ui.highlight']);
