@@ -1,5 +1,7 @@
 'use strict';
 
+var info = require('../models/info');
+
 // var mongoose = require('mongoose'),
     // TODO: 在此处引入Model层的东西，例如
     // User = mongoose.model('User');
@@ -11,17 +13,21 @@ exports.getContacts = function(req, res) {
     // TODO: 查询数据库
     
     // 注意result必须是一个数组，内含若干contacts对象
-    var result = [{
-        name: '林寿山',
-        sex: true,
-        grade: '13级学硕',
-        mobile: '15926290828',
-        qq: '307032614',
-        email: 'raytaylorlin@gmail.com',
-        teacher: '许炜'
-    }];
+    //var result = [{
+    //    name: '林寿山',
+    //    sex: true,
+    //    grade: '13级学硕',
+    //    mobile: '15926290828',
+    //    qq: '307032614',
+    //    email: 'raytaylorlin@gmail.com',
+    //    teacher: '许炜'
+    //}];
 
-    res.json(result);
+    //res.json(result);
+    info.find(function (err, data) {
+        if (err) res.json([]);
+        else res.json(data);
+    });
 };
 
 /**
@@ -36,9 +42,43 @@ exports.updateContacts = function(req, res) {
     // TODO: 如果不存在同名则创建一条新记录
     // TODO: 若存在同名则更新数据库的记录（同时state = 'update'）
 
-    res.json({
-        msg: state,
-        body: req.body
+    //res.json({
+    //    msg: state,
+    //    body: req.body
+    //});
+    var body = new info({
+        name: req.body.name,
+        sex: req.body.sex,
+        grade: req.body.grade,
+        mobile: req.body.mobile,
+        qq: req.body.qq,
+        email: req.body.email,
+        teacher: req.body.teacher
+    });
+    info.findOne({'name': req.body.name}, function (err, doc) {
+        if (err) {
+            res.json({
+                msg: state,
+                body: req.body
+            });
+        } else {
+            if (!doc) {
+                body.save(function (err, data) {
+                    res.json({
+                        msg: state,
+                        body: req.body
+                    });
+                });
+            } else {
+                state = 'update';
+                doc.update(req.body, function (err, doc) {
+                    res.json({
+                        msg: state,
+                        body: req.body
+                    });
+                });
+            }
+        }
     });
 };
 
