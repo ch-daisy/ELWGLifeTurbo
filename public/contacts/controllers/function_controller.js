@@ -2,8 +2,8 @@
 
 var contactsModule = angular.module('elwglife.contacts');
 
-contactsModule.controller('FunctionController',
-    function($scope, $modal) {
+contactsModule.controller('FunctionCtrl',
+    function($scope, $rootScope, $modal) {
         $scope.openAddContactsModal = function(size) {
             $modal.open({
                 templateUrl: 'addContactsModal.html',
@@ -16,6 +16,9 @@ contactsModule.controller('FunctionController',
                 }
             });
         };
-        $scope.hehe = 'hehe';
+
+        $scope.search = function() {
+            $rootScope.$broadcast('searchKeyword', this.keyword);
+        };
     }
 );
