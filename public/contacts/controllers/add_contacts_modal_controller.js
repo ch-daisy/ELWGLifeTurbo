@@ -8,7 +8,7 @@ contactsModule.controller('AddContactsModalCtrl',
         $scope.teacherList = ['许炜', '程文青', '夏天', '黑晓军'];
 
         $scope.contacts = new Contacts({
-            sex: 'male',
+            sex: '男',
             grade: $scope.gradeList[0],
             teacher: $scope.teacherList[0]
         });

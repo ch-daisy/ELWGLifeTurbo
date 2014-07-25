@@ -4,11 +4,12 @@
   </div>
 
   <div class="modal-body">
-    <form ng-submit="submit()" class="form-horizontal" role="form">
-      <div class="form-group">
+    <form ng-submit="submit()" class="form-horizontal" name="addContactsForm" role="form">
+
+      <div class="form-group" ng-class="{'has-error': addContactsForm.name.$invalid}">
         <label for="inputName" class="col-sm-2 control-label">姓名</label>
         <div class="col-sm-10">
-          <input ng-model="contacts.name" type="input" class="form-control" id="inputName" placeholder="如果有同名则更新">
+          <input ng-model="contacts.name" required type="input" class="form-control" name="name" id="inputName" placeholder="必填，如果有同名则更新">
         </div>
       </div>
 
@@ -16,10 +17,10 @@
         <label for="radioSex" class="col-sm-2 control-label">性别</label>
         <div class="col-sm-10">
           <label class="radio-inline">
-            <input type="radio" ng-model="contacts.sex" name="radioSex" checked="true" id="radioMale" value="male">男
+            <input type="radio" ng-model="contacts.sex" name="radioSex" checked="true" id="radioMale" value="男">男
           </label>
           <label class="radio-inline">
-            <input type="radio" ng-model="contacts.sex" name="radioSex" id="radioFemale" value="female">女
+            <input type="radio" ng-model="contacts.sex" name="radioSex" id="radioFemale" value="女">女
           </label>
         </div>
       </div>
@@ -32,24 +33,24 @@
         </div>
       </div>
 
-      <div class="form-group">
+      <div class="form-group" ng-class="{'has-error': addContactsForm.mobile.$invalid}">
         <label for="inputMobile" class="col-sm-2 control-label">电话</label>
         <div class="col-sm-10">
-          <input ng-model="contacts.mobile" type="input" class="form-control" id="inputMobile">
+          <input ng-model="contacts.mobile" require ng-pattern="/^1[0-9]{10}$/" type="input" class="form-control" name="mobile" id="inputMobile" placeholder="必填">
         </div>
       </div>
 
-      <div class="form-group">
+      <div class="form-group" ng-class="{'has-error': addContactsForm.qq.$invalid}">
         <label for="inputQQ" class="col-sm-2 control-label">QQ</label>
         <div class="col-sm-10">
-          <input ng-model="contacts.qq" type="input" class="form-control" id="inputQQ">
+          <input ng-model="contacts.qq" required integer ype="input" class="form-control" name="qq" id="inputQQ" placeholder="必填">
         </div>
       </div>
 
-      <div class="form-group">
+      <div class="form-group" ng-class="{'has-error': addContactsForm.email.$invalid}">
         <label for="inputEmail" class="col-sm-2 control-label">邮箱</label>
         <div class="col-sm-10">
-          <input ng-model="contacts.email" type="input" class="form-control" id="inputEmail">
+          <input ng-model="contacts.email" required type="email" class="form-control" name="email" id="inputEmail" placeholder="必填">
         </div>
       </div>
 
@@ -65,7 +66,7 @@
   </div>
 
   <div class="modal-footer">
-    <button class="btn btn-primary" ng-click="submit()">提交</button>
+    <button class="btn btn-primary" ng-disabled="!addContactsForm.$valid" ng-click="submit()">提交</button>
     <button class="btn btn-warning" ng-click="cancel()">取消</button>
   </div>
 </script>
