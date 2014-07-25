@@ -3,7 +3,7 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
-var InfoSchema = new Schema({
+var ContactSchema = new Schema({
     name: String,
     sex: String,
     grade: String,
@@ -13,4 +13,4 @@ var InfoSchema = new Schema({
     teacher: String
 });
 
-module.exports = mongoose.model('info', InfoSchema);
+module.exports = mongoose.model('info', ContactSchema);

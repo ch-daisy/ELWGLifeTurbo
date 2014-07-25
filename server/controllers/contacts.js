@@ -1,6 +1,6 @@
 'use strict';
 
-var info = require('../models/info');
+var contacts = require('../models/contacts');
 
 // var mongoose = require('mongoose'),
     // TODO: 在此处引入Model层的东西，例如
@@ -24,7 +24,7 @@ exports.getContacts = function(req, res) {
     //}];
 
     //res.json(result);
-    info.find(function (err, data) {
+    contacts.find(function (err, data) {
         if (err) res.json([]);
         else res.json(data);
     });
@@ -46,7 +46,7 @@ exports.updateContacts = function(req, res) {
     //    msg: state,
     //    body: req.body
     //});
-    var body = new info({
+    var body = new contacts({
         name: req.body.name,
         sex: req.body.sex,
         grade: req.body.grade,
@@ -55,7 +55,7 @@ exports.updateContacts = function(req, res) {
         email: req.body.email,
         teacher: req.body.teacher
     });
-    info.findOne({'name': req.body.name}, function (err, doc) {
+    contacts.findOne({'name': req.body.name}, function (err, doc) {
         if (err) {
             res.json({
                 msg: state,
