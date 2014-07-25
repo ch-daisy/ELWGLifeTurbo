@@ -20,6 +20,7 @@ for (var index in window.modules) {
 var modules = [
     'ngCookies', 
     'ngResource', 
+    'ngSanitize',
     'ui.bootstrap', 
     'ui.router', 
 

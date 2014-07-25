@@ -9,14 +9,14 @@
     <th>导师</th>
   </thead>
   <tbody>
-    <tr ng-repeat="contacts in contactsList">
-      <td>{{contacts.name}}</td>
-      <td>{{contacts.sex ? '男': '女'}}</td>
-      <td>{{contacts.grade}}</td>
-      <td>{{contacts.mobile}}</td>
-      <td>{{contacts.qq}}</td>
-      <td>{{contacts.email}}</td>
-      <td>{{contacts.teacher}}</td>
+    <tr ng-repeat="contacts in contactsList | filter:keyword">
+      <td ng-bind-html="contacts.name | highlight:keyword"></td>
+      <td ng-bind-html="contacts.sex | highlight:keyword"></td>
+      <td ng-bind-html="contacts.grade | highlight:keyword"></td>
+      <td ng-bind-html="contacts.mobile | highlight:keyword"></td>
+      <td ng-bind-html="contacts.qq | highlight:keyword"></td>
+      <td ng-bind-html="contacts.email | highlight:keyword"></td>
+      <td ng-bind-html="contacts.teacher | highlight:keyword"></td>
     </tr>
   </tbody>
 </table>

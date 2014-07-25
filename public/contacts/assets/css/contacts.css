@@ -8,3 +8,9 @@
 .modal-header h4 {
   margin-left: 0.5em;
 }
+.ui-match {
+  background: yellow;
+}
+.form-control.input-keyword {
+  width: 320px;
+}
