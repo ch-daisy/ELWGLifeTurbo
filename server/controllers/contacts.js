@@ -1,52 +1,43 @@
 'use strict';
 
-var contacts = require('../models/contacts');
+var Contacts = require('../models/contacts');
 
-// var mongoose = require('mongoose'),
-    // TODO: 在此处引入Model层的东西，例如
-    // User = mongoose.model('User');
-
-/**
- * 查询所有通讯录
- */
 exports.getContacts = function(req, res) {
-    // TODO: 查询数据库
-    
-    // 注意result必须是一个数组，内含若干contacts对象
-    //var result = [{
-    //    name: '林寿山',
-    //    sex: true,
-    //    grade: '13级学硕',
-    //    mobile: '15926290828',
-    //    qq: '307032614',
-    //    email: 'raytaylorlin@gmail.com',
-    //    teacher: '许炜'
-    //}];
-
-    //res.json(result);
-    contacts.find(function (err, data) {
-        if (err) res.json([]);
-        else res.json(data);
+    Contacts.find(function (err, data) {
+        if (err) {
+            res.json([]);
+        } else {
+            res.json(data);
+        }
     });
 };
 
 /**
- * 创建或更新通讯录记录
+ * 创建通讯录记录
+ */
+exports.insertContacts = function(req, res) {
+    var body = new Contacts({
+        name: req.body.name,
+        sex: req.body.sex,
+        grade: req.body.grade,
+        mobile: req.body.mobile,
+        qq: req.body.qq,
+        email: req.body.email,
+        teacher: req.body.teacher
+    });
+    body.save(function (err, data) {
+        res.json({
+            msg: 'create',
+            body: req.body
+        });
+    });
+};
+
+/**
+ * 更新通讯录记录
  */
 exports.updateContacts = function(req, res) {
-    var state = 'create';
-
-    // 提交的内容存放在req.body中
-    console.log(req.body);
-
-    // TODO: 如果不存在同名则创建一条新记录
-    // TODO: 若存在同名则更新数据库的记录（同时state = 'update'）
-
-    //res.json({
-    //    msg: state,
-    //    body: req.body
-    //});
-    var body = new contacts({
+    var body = new Contacts({
         name: req.body.name,
         sex: req.body.sex,
         grade: req.body.grade,
@@ -56,30 +47,23 @@ exports.updateContacts = function(req, res) {
         teacher: req.body.teacher
     });
     contacts.findOne({'name': req.body.name}, function (err, doc) {
-        if (err) {
+        if (err || !doc) {
             res.json({
                 msg: state,
                 body: req.body
             });
         } else {
-            if (!doc) {
-                body.save(function (err, data) {
-                    res.json({
-                        msg: state,
-                        body: req.body
-                    });
+            doc.update(req.body, function (err, doc) {
+                res.json({
+                    msg: state,
+                    body: req.body
                 });
-            } else {
-                state = 'update';
-                doc.update(req.body, function (err, doc) {
-                    res.json({
-                        msg: state,
-                        body: req.body
-                    });
-                });
-            }
+            });
         }
     });
+};
+
+exports.removeContacts = function(req, res) {
 };
 
 /**
