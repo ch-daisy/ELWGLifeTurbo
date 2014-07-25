@@ -9,7 +9,7 @@
       <div class="form-group" ng-class="{'has-error': addContactsForm.name.$invalid}">
         <label for="inputName" class="col-sm-2 control-label">姓名</label>
         <div class="col-sm-10">
-          <input ng-model="contacts.name" required type="input" class="form-control" name="name" id="inputName" placeholder="必填，如果有同名则更新">
+          <input ng-model="contacts.name" ng-blur="checkExist(contacts.name)" required type="input" class="form-control" name="name" id="inputName" placeholder="必填，如果有同名则更新">
         </div>
       </div>
 

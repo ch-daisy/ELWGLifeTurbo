@@ -13,14 +13,26 @@ contactsModule.controller('AddContactsModalCtrl',
             teacher: $scope.teacherList[0]
         });
 
+        // 通过姓名检查通讯录是否已存在
+        $scope.checkExist = function(name) {
+            Contacts.query(function(contactsList) {
+                angular.forEach(contactsList, function(contacts) {
+                    if(contacts.name === name) {
+                        $scope.contacts = contacts;
+                    }
+                });
+            });
+        };
+
+        // 提交通讯录
         $scope.submit = function() {
             $scope.contacts.$save(function(result) {
-                console.log(result.msg + ' ' + JSON.stringify(result.body));
                 $scope.cancel();      
                 $rootScope.$broadcast('addContacts');
             });
         };
 
+        // 关闭表单
         $scope.cancel = function() {
             $modalInstance.dismiss('cancel');
         };
