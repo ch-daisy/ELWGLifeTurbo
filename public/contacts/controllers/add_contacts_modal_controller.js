@@ -41,15 +41,29 @@ contactsModule.controller('AddContactsModalCtrl',
 
         // 提交通讯录
         $scope.submit = function() {
-            $scope.contacts.$save(function(result) {
+            if($scope.contactsExist) {
+                $scope.contacts.update(onRequestSuccess);
+            } else {
+                $scope.contacts.$save(onRequestSuccess);
+            }
+
+            function onRequestSuccess() {
                 $scope.cancel();      
-                $rootScope.$broadcast('addContacts');
-            });
+                $rootScope.$broadcast('refreshContacts');
+            }
         };
 
         // 关闭表单
         $scope.cancel = function() {
             $modalInstance.dismiss('cancel');
+        };
+
+        // 删除通讯录
+        $scope.delete = function() {
+            $scope.contacts.$delete({id: this.contacts._id}, function(result) {
+                $scope.cancel();
+                $rootScope.$broadcast('refreshContacts');
+            });
         };
     }
 );

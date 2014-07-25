@@ -7,7 +7,7 @@ contactsModule.controller('ContentCtrl',
         $scope.contactsList = new ContactsLoader();
 
         // 添加通讯录事件
-        $scope.$on('addContacts', function(e) {
+        $scope.$on('refreshContacts', function(e) {
             // 重新加载所有通讯录
             $scope.contactsList = new ContactsLoader();
         });
