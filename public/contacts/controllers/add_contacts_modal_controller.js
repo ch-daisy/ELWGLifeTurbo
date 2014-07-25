@@ -18,7 +18,7 @@ contactsModule.controller('AddContactsModalCtrl',
         $scope.checkExist = function(name) {
             Contacts.query(function(contactsList) {
                 var contactsExist = false,
-                    originName, contacts;
+                    originName;
 
                 // 遍历现有通讯录看名字是否已存在
                 angular.forEach(contactsList, function(contacts) {
@@ -41,15 +41,15 @@ contactsModule.controller('AddContactsModalCtrl',
 
         // 提交通讯录
         $scope.submit = function() {
+            function onRequestSuccess() {
+                $scope.cancel();      
+                $rootScope.$broadcast('refreshContacts');
+            }
+            
             if($scope.contactsExist) {
                 $scope.contacts.update(onRequestSuccess);
             } else {
                 $scope.contacts.$save(onRequestSuccess);
-            }
-
-            function onRequestSuccess() {
-                $scope.cancel();      
-                $rootScope.$broadcast('refreshContacts');
             }
         };
 
