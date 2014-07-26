@@ -6,6 +6,11 @@ contactsModule.controller('AddContactsModalCtrl',
     function($scope, $rootScope, $modalInstance, $location, Contacts) {
         var defaultContacts;
 
+        function onRequestSuccess() {
+            $scope.cancel();      
+            $rootScope.$broadcast('refreshContacts');
+        }
+
         $scope.gradeList = ['14级学硕', '14级工硕', '13级学硕', '13级工硕', '12级学硕', '12级工硕', '本科实习生', '老师'];
         $scope.teacherList = ['许炜', '程文青', '夏天', '黑晓军'];
         $scope.contacts = defaultContacts = new Contacts({
@@ -41,13 +46,8 @@ contactsModule.controller('AddContactsModalCtrl',
 
         // 提交通讯录
         $scope.submit = function() {
-            function onRequestSuccess() {
-                $scope.cancel();      
-                $rootScope.$broadcast('refreshContacts');
-            }
-            
             if($scope.contactsExist) {
-                $scope.contacts.update(onRequestSuccess);
+                $scope.contacts.$update(onRequestSuccess);
             } else {
                 $scope.contacts.$save(onRequestSuccess);
             }
@@ -60,10 +60,8 @@ contactsModule.controller('AddContactsModalCtrl',
 
         // 删除通讯录
         $scope.delete = function() {
-            $scope.contacts.$delete({id: this.contacts._id}, function(result) {
-                $scope.cancel();
-                $rootScope.$broadcast('refreshContacts');
-            });
+            $scope.contacts.$delete({id: this.contacts._id}, 
+                onRequestSuccess);
         };
     }
 );
