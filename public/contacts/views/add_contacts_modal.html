@@ -69,6 +69,6 @@
     <button class="btn btn-primary" ng-disabled="!addContactsForm.$valid" ng-click="submit()">提交</button>
     <button class="btn btn-warning" ng-click="cancel()">取消</button>
 
-    <button class="btn btn-danger pull-left" ng-show="contactsExist" ng-click="delete()">删除记录</button>
+    <button class="btn btn-danger pull-left" ng-show="contactsExist" ng-click="delete()" tooltip-placement="right" tooltip="删除后将无法恢复，请慎重">删除记录</button>
   </div>
 </script>
