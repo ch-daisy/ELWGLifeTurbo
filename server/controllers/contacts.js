@@ -37,25 +37,16 @@ exports.insertContacts = function(req, res) {
  * 更新通讯录记录
  */
 exports.updateContacts = function(req, res) {
-    var body = new Contacts({
-        name: req.body.name,
-        sex: req.body.sex,
-        grade: req.body.grade,
-        mobile: req.body.mobile,
-        qq: req.body.qq,
-        email: req.body.email,
-        teacher: req.body.teacher
-    });
-    contacts.findOne({'name': req.body.name}, function (err, doc) {
+    Contacts.findOne({'name': req.body.name}, function (err, doc) {
         if (err || !doc) {
             res.json({
-                msg: state,
+                msg: 'update',
                 body: req.body
             });
         } else {
             doc.update(req.body, function (err, doc) {
                 res.json({
-                    msg: state,
+                    msg: 'update',
                     body: req.body
                 });
             });
