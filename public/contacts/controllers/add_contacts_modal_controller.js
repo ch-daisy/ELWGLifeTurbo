@@ -60,8 +60,10 @@ contactsModule.controller('AddContactsModalCtrl',
 
         // 删除通讯录
         $scope.delete = function() {
-            $scope.contacts.$delete({id: this.contacts._id}, 
-                onRequestSuccess);
+            if(confirm('确定要删除这条通讯录记录吗？')) {
+                $scope.contacts.$delete({id: this.contacts._id}, 
+                    onRequestSuccess);
+            }
         };
     }
 );
