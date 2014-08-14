@@ -54,7 +54,15 @@ exports.updateContacts = function(req, res) {
     });
 };
 
-exports.removeContacts = function(req, res) {
+/**
+  * 删除通讯录记录
+  */
+exports.deleteContacts = function(req, res) {
+    Contacts.remove({'_id':req.params.id}, function (err) {
+        res.json({
+            msg: 'delete'
+        });
+    });
 };
 
 /**
