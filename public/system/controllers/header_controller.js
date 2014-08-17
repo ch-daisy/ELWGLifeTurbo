@@ -1,19 +1,27 @@
 'use strict';
 
-angular.module('elwglife.system')
-    .controller('HeaderCtrl', 
-        function($scope, $state) {
-            // 默认的菜单栏选项
-            var defaultMainMenu = [{
-                title: '值日系统',
-                link: 'duty'
-            }, {
-                title: '通讯录',
-                link: 'contacts'
-            }];
-            $scope.menus = defaultMainMenu;
+var systemModule = angular.module('elwglife.system');
 
-            // 默认跳转到通讯录页面
-            $state.go('contacts');
-        }
+systemModule.controller('HeaderCtrl', 
+    function($scope, $state) {
+        var defaultMainMenu = [{
+            title: '值日系统',
+            link: 'duty'
+        }, {
+            title: '通讯录',
+            link: 'contacts'
+        }];
+
+        // 设置默认的菜单栏选项
+        $scope.menus = defaultMainMenu;
+
+        // 设置移动端header的折叠效果
+        $scope.isCollapsed = true;
+        $scope.collapseHeader = function() {
+            $scope.isCollapsed = !$scope.isCollapsed;
+        };
+
+        // 默认跳转到通讯录页面
+        $state.go('contacts');
+    }
 );

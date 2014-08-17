@@ -2,7 +2,7 @@
   <div class="container">
 
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+      <button type="button" class="navbar-toggle collapsed" ng-click="collapseHeader()" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -11,7 +11,7 @@
       <a class="navbar-brand" href="/">ELWG Life Turbo</a>
     </div>
 
-    <div class="navbar-collapse collapse" style="height: 1px;">
+    <div class="navbar-collapse collapse" collapse="isCollapsed">
       <ul class="nav navbar-nav">
         <li data-ng-repeat="item in menus" ui-route="/{{item.link}}" ng-class="{active: $uiRoute}">
           <a ui-sref='{{item.link}}'>{{item.title}}</a>
