@@ -8,6 +8,20 @@ body, table, input, textarea, select, button {
 }
 .navbar-inverse {
     background-color: @header-footer-color;
+
+    .navbar-toggle {
+        border-color: white;
+    }
+
+    .navbar-brand {
+        color: @header-font-color;
+        font-size: 1.4em;
+    }
+
+    .navbar-nav > li > a {
+        color: @header-font-color;
+        font-size: 1.2em;
+    }
 }
 .page-header {
     padding-bottom: 0 !important;
@@ -18,13 +32,9 @@ body, table, input, textarea, select, button {
         float: right;
     }
 }
-// .navbar .nav>li>a.brand {
-//     padding-left: 20px;
-//     margin-left: 0
-// }
 .content {
-    margin-top:70px;
-    width:100%
+    margin-top: 70px;
+    width: 100%
 }
 
 @import "layout";

@@ -17,6 +17,17 @@ button {
 .navbar-inverse {
   background-color: #2d313d;
 }
+.navbar-inverse .navbar-toggle {
+  border-color: white;
+}
+.navbar-inverse .navbar-brand {
+  color: #cccccc;
+  font-size: 1.4em;
+}
+.navbar-inverse .navbar-nav > li > a {
+  color: #cccccc;
+  font-size: 1.2em;
+}
 .page-header {
   padding-bottom: 0 !important;
   margin: 0 !important;
