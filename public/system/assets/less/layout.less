@@ -1,32 +1,42 @@
 /**
  * layout.less
  * 实现了经典的上中下布局
- * 实现了Sticky footer（参照：http://www.cssstickyfooter.com/cn/）
+ * 实现了Sticky footer（参照：http://getbootstrap.com/examples/sticky-footer/）
  */
 
 @import "constants";
 
-html, body {
-    height: 100%;
-}
-body .wrapper {
-    height: auto;
+html {
+    position: relative;
     min-height: 100%;
 }
-.main-container {
-    padding-bottom: @footer-height;
+body {
+    @media screen {
+        margin-bottom: @footer-height;
+
+        @media (max-width: 480px) {
+            margin-bottom: @mobile-footer-height;
+        }
+    }
 }
 footer {
-    position: relative;
-    margin-top: -@footer-height;
-    height: @footer-height;
-    clear: both;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     color: white;
     background-color: @header-footer-color;
+
+    @media screen {
+        height: @footer-height;
+
+        @media (max-width: 480px) {
+            height: @mobile-footer-height;
+        }
+    }
 }
 footer .container {
-    padding: 5px 0;
+    padding: 10px 20px;
 }
 footer p {
-    margin-top: 10px;
+    margin: 6px 0;
 }

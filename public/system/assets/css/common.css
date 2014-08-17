@@ -3,10 +3,6 @@
  * constants/size.less
  * 定义了各种关于尺寸的常量
  */
-html,
-body {
-  height: 100%;
-}
 body,
 table,
 input,
@@ -36,32 +32,44 @@ button {
 /**
  * layout.less
  * 实现了经典的上中下布局
- * 实现了Sticky footer（参照：http://www.cssstickyfooter.com/cn/）
+ * 实现了Sticky footer（参照：http://getbootstrap.com/examples/sticky-footer/）
  */
-html,
-body {
-  height: 100%;
-}
-body .wrapper {
-  height: auto;
+html {
+  position: relative;
   min-height: 100%;
 }
-.main-container {
-  padding-bottom: 80px;
+@media screen {
+  body {
+    margin-bottom: 80px;
+  }
+}
+@media screen and (max-width: 480px) {
+  body {
+    margin-bottom: 120px;
+  }
 }
 footer {
-  position: relative;
-  margin-top: -80px;
-  height: 80px;
-  clear: both;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   color: white;
   background-color: #2d313d;
 }
+@media screen {
+  footer {
+    height: 80px;
+  }
+}
+@media screen and (max-width: 480px) {
+  footer {
+    height: 120px;
+  }
+}
 footer .container {
-  padding: 5px 0;
+  padding: 10px 20px;
 }
 footer p {
-  margin-top: 10px;
+  margin: 6px 0;
 }
 /**
  * util.less
