@@ -11,6 +11,21 @@
 .ui-match {
   background: yellow;
 }
-.form-control.input-keyword {
-  width: 320px;
+.search-form-group {
+  display: inline-block;
+}
+@media screen {
+  .search-form-group {
+    width: 85%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .search-form-group {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 320px) {
+  .search-form-group {
+    width: 75%;
+  }
 }

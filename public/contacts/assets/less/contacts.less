@@ -17,6 +17,18 @@
     background: yellow;
 }
 
-.form-control.input-keyword {
-    width: 320px;
+.search-form-group {
+    display: inline-block;
+
+    @media screen {
+        width: 85%;
+
+        @media (max-width: 480px) {
+            width: 80%
+        }
+
+        @media (max-width: 320px) {
+            width: 75%;
+        }
+    }
 }

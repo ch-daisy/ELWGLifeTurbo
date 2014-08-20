@@ -5,11 +5,11 @@ var systemModule = angular.module('elwglife.system');
 systemModule.controller('HeaderCtrl', 
     function($scope, $state) {
         var defaultMainMenu = [{
-            title: '值日系统',
-            link: 'duty'
-        }, {
             title: '通讯录',
             link: 'contacts'
+        }, {
+            title: '值日系统',
+            link: 'duty'
         }];
 
         // 设置默认的菜单栏选项
