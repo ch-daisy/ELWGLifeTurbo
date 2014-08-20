@@ -19,6 +19,11 @@
     width: 85%;
   }
 }
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .search-form-group {
+    width: 78%;
+  }
+}
 @media screen and (max-width: 480px) {
   .search-form-group {
     width: 80%;

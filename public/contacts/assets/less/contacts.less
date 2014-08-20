@@ -23,10 +23,17 @@
     @media screen {
         width: 85%;
 
-        @media (max-width: 480px) {
-            width: 80%
+        // iPad
+        @media (min-width: 768px) and (max-width: 1024px) {
+            width: 78%;
         }
 
+        // large android mobile
+        @media (max-width: 480px) {
+            width: 80%;
+        }
+
+        // iPhone or small mobile
         @media (max-width: 320px) {
             width: 75%;
         }
