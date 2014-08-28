@@ -37,5 +37,12 @@ body, table, input, textarea, select, button {
     width: 100%
 }
 
+// 禁用input[type=numer]的上下调整键
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+
 @import "layout";
 @import "util";

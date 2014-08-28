@@ -40,6 +40,11 @@ button {
   margin-top: 70px;
   width: 100%;
 }
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 /**
  * layout.less
  * 实现了经典的上中下布局
