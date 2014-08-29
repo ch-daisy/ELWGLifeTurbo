@@ -9,6 +9,7 @@ contactsModule.controller('FunctionCtrl',
                 templateUrl: 'addContactsModal.html',
                 controller: 'AddContactsModalCtrl',
                 size: size,
+                backdrop: 'static',
                 resolve: {
                     items: function() {
                         return $scope.items;
