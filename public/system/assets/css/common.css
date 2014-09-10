@@ -61,7 +61,7 @@ html {
 }
 @media screen and (max-width: 480px) {
   body {
-    margin-bottom: 120px;
+    margin-bottom: 100px;
   }
 }
 footer {
@@ -78,7 +78,7 @@ footer {
 }
 @media screen and (max-width: 480px) {
   footer {
-    height: 120px;
+    height: 100px;
   }
 }
 footer .container {
