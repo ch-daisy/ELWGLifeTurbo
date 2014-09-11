@@ -21,5 +21,10 @@ contactsModule.controller('FunctionCtrl',
         $scope.search = function() {
             $rootScope.$broadcast('searchKeyword', this.keyword);
         };
+
+        $scope.reset = function() {
+            this.keyword = '';
+            this.search();
+        };
     }
 );

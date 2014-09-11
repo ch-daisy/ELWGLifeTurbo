@@ -1,16 +1,16 @@
 <div class="row">
-  <div class="col-md-5 col-xs-12 pull-right">
+  <div class="col-md-6 col-xs-12 pull-right">
     <form class="clearfix" role="form">
       <div class="form-group search-form-group pull-left">
         <label class="sr-only" for="search-keyword">关键字</label>
         <input ng-model="keyword" type="text" class="input-keyword form-control" id="search-keyword"
-        name="keyword" placeholder="要搜索的姓名、电话、导师或其他信息"/>
-        </div>
-      <button class="btn btn-primary pull-right" ng-click="search()">搜索</button>
+        name="keyword" ng-change="search()" placeholder="要搜索的姓名、电话、导师或其他信息"/>
+      </div>
+      <button class="btn btn-primary pull-right" ng-click="reset()">重置</button>
     </form>
   </div>
 
-  <div class="col-md-7 col-xs-6">
+  <div class="col-md-6 col-xs-6">
     <button class="btn btn-info" ng-click="openAddContactsModal()">我要 添加/修改 通讯录</button>
   </div>
 </div>
